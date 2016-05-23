@@ -2,6 +2,8 @@ package com.cicero.demo.entity;
 
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public final class Address {
 
 	private final Long cep;
@@ -39,6 +41,7 @@ public final class Address {
 		return state;
 	}
 
+	@JsonIgnore
 	public boolean isValidAdress() {
 		if (StringUtils.isEmpty(getStreet()) || StringUtils.isEmpty(getCity()) || StringUtils.isEmpty(getState())
 				|| StringUtils.isEmpty(getNeighborhood())) {

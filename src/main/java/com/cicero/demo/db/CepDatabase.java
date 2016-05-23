@@ -33,6 +33,13 @@ public final class CepDatabase {
 		ceps.put(address.getCep(), address);
 		address = new Address(new Long("01005003"), "Rua x", "", "São Paulo", "São Paulo");
 		ceps.put(address.getCep(), null);
+		
+		address = new Address(new Long("01005999"), "Rua x", "", "São Paulo", "São Paulo");
+		ceps.put(address.getCep(), address);
+		address = new Address(new Long("01005990"), "Rua x", "", "São Paulo", "São Paulo");
+		ceps.put(address.getCep(), address);
+		address = new Address(new Long("01005900"), "Rua x", "Jardim Z", "São Paulo", "São Paulo");
+		ceps.put(address.getCep(), address);
 
 	}
 
