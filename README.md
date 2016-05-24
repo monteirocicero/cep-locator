@@ -27,7 +27,15 @@ Será retornado um JSON como abaixo:
    "state":"São Paulo"
 }
 
+Para mais informações da API, consultar o link abaixo com swagger.
+
+http://localhost:8080/api/swagger-ui.html
+
 
 OBS: No momento a aplicação está rodando com dados mockados apenas os seguintes cep encontram-se disponíveis:
 
-01311923, 01046925, 01014010, 01046010, 01005000, 01005001, 01005002, 01005003, 01005999, 01005990, 01005900.
+Cep válidos
+01311923, 01046925, 01014010, 01046010, 01005000.
+
+Cep válidos, mas sem endereço 
+01005001, 01005002, 01005003, 01005999, 01005990, 01005900.
