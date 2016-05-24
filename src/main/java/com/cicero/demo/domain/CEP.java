@@ -1,10 +1,10 @@
-package com.cicero.demo.entity;
+package com.cicero.demo.domain;
 
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public final class Address {
+public final class CEP {
 
 	private final Long cep;
 	private final String street;
@@ -12,7 +12,7 @@ public final class Address {
 	private final String city;
 	private final String state;
 
-	public Address(Long cep, String street, String neighborhood, String city, String state) {
+	public CEP(Long cep, String street, String neighborhood, String city, String state) {
 		super();
 		this.cep = cep;
 		this.street = street;

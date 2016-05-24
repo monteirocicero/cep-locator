@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.cicero.demo.db.CepDatabase;
-import com.cicero.demo.entity.Address;
-import com.cicero.demo.exception.AddressNotFoundException;
+import com.cicero.demo.domain.CEP;
+import com.cicero.demo.exception.CEPNotFoundException;
 import com.cicero.demo.service.CepService;
 
 @Component
@@ -16,21 +16,21 @@ public class CepServiceImpl implements CepService {
 	private CepDatabase cepDatabase;
 
 	@Override
-	public Address findAddressByCep(Long cep) throws AddressNotFoundException {
-		Address address = cepDatabase.findCep(cep);
+	public CEP findCepByNumber(Long cep) throws CEPNotFoundException {
+		CEP cepFound = cepDatabase.findCep(cep);
 
-		if (address == null || !address.isValidAdress()) {
+		if (cepFound == null || !cepFound.isValidAdress()) {
 			String cepStr = String.valueOf(cep);
 			int attempts = cepStr.length() - 1;
 			return retry(cep, attempts);
 		}
-		return address;
+		return cepFound;
 	}
 
-	private Address retry(Long cep, int attempts) throws AddressNotFoundException {
-		Address address = cepDatabase.findCep(cep);
+	private CEP retry(Long cep, int attempts) throws CEPNotFoundException {
+		CEP cepFound = cepDatabase.findCep(cep);
 		
-		if (attempts >= 0 && address == null || !address.isValidAdress()) {
+		if (attempts >= 0 && cepFound == null || !cepFound.isValidAdress()) {
 			
 			String cepStr = String.valueOf(cep);
 			char cepChar[] = cepStr.toCharArray();
@@ -39,8 +39,8 @@ public class CepServiceImpl implements CepService {
 			Long cepRequest = Long.valueOf(cepStr);
 			
 			
-			address = retry(cepRequest, attempts - 1);
+			cepFound = retry(cepRequest, attempts - 1);
 		}
-		return address;
+		return cepFound;
 	}
 }
