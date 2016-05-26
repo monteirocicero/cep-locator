@@ -12,7 +12,7 @@ import com.cicero.demo.exception.CEPNotFoundException;
 @Component
 public final class CepDatabase {
 
-	private final Map<Long, CEP> ceps = Collections.synchronizedMap(new HashMap<>());;
+	private final Map<Long, CEP> ceps = Collections.synchronizedMap(new HashMap<>());
 
 	private CepDatabase() {
 		CEP address = new CEP(new Long("01452002"), "Av. Brigadeiro Faria Lima", "Jardim Paulistano",

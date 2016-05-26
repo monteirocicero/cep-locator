@@ -1,34 +1,55 @@
 package com.cicero.demo.domain;
 
+import java.io.Serializable;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public final class CEP {
+public class Address implements Serializable {
 
-	private Long cep;
-	private String street;
-	private String neighborhood;
-	private String city;
-	private String state;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
-	public CEP() {
+	private Long id;
+	
+	@NotEmpty
+	@NotBlank
+	private String cep;
+	
+	@NotEmpty
+	@NotBlank
+	private String street;
+	
+	private Integer houseNumber;
+	private String neighborhood;
+	private String complement;
+	
+	@NotEmpty
+	@NotBlank
+	private String city;
+	
+	@NotEmpty
+	@NotBlank
+	private String state;
+
+	public Long getId() {
+		return id;
 	}
 
-	public CEP(Long cep, String street, String neighborhood, String city, String state) {
-		super();
-		this.cep = cep;
-		this.street = street;
-		this.neighborhood = neighborhood;
-		this.city = city;
-		this.state = state;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -40,12 +61,28 @@ public final class CEP {
 		this.street = street;
 	}
 
+	public Integer getHouseNumber() {
+		return houseNumber;
+	}
+
+	public void setHouseNumber(Integer houseNumber) {
+		this.houseNumber = houseNumber;
+	}
+
 	public String getNeighborhood() {
 		return neighborhood;
 	}
 
 	public void setNeighborhood(String neighborhood) {
 		this.neighborhood = neighborhood;
+	}
+
+	public String getComplement() {
+		return complement;
+	}
+
+	public void setComplement(String complement) {
+		this.complement = complement;
 	}
 
 	public String getCity() {
