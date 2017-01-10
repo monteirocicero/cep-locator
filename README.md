@@ -19,6 +19,7 @@ http://localhost:8080/api/cep/01005003
 
 Será retornado um JSON como abaixo:
 
+```javascript
 {  
    "cep":1005000,
    "street":"Rua Benjamim Constant",
@@ -26,10 +27,17 @@ Será retornado um JSON como abaixo:
    "city":"São Paulo",
    "state":"São Paulo"
 }
+```
 
 Para mais informações da API, consultar o link abaixo com swagger.
 
 http://localhost:8080/api/swagger-ui.html
+
+ou
+
+Acessar versão disponível no PaaS do Heroku.
+
+https://secret-forest-49744.herokuapp.com/api/swagger-ui.html
 
 
 OBS: No momento a aplicação está rodando com dados mockados apenas os seguintes cep encontram-se disponíveis:
